@@ -1,0 +1,24 @@
+.main-view-container {
+    position: relative;
+    height: 90vmin;
+
+    .side-content .h1{
+        top: 0;
+        height: 10%;
+    }
+
+    .viewer {
+        display: flex;
+        flex-direction: column;
+        height: 90vmin;
+        overflow: hidden;
+        flex: 1 1 50%;
+    }
+    
+    app-viewer {
+        height: 90vmin;
+        flex: 1 1 200px;
+        background: linear-gradient(0deg, rgba(161,161,161,1) 0%, rgba(238,238,238,1) 100%);
+        z-index: 0;
+    }
+ }

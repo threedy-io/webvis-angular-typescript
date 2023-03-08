@@ -1,0 +1,14 @@
+.App {
+    text-align: center;
+    height: 90vmin;
+    padding: 10px;
+  }
+  
+  .viewer {
+  
+    overflow: "hidden";
+    width: "100%";
+    background: linear-gradient(0deg, rgba(161, 161, 161, 1) 0%, rgba(238, 238, 238, 1) 100%);
+  
+  }
+  
