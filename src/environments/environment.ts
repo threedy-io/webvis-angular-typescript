@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  webvisURL: "http://cluster1-node1.threedy.io:30088/repo/webvis/webvis.js",
+  webvisURL: 'https://demo.threedy.io/repo/webvis/webvis.js?next',
 };
 
 /*
