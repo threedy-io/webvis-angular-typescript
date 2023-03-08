@@ -5,34 +5,29 @@ import { WebvisLibService } from 'webvis-angular-lib';
 @Component({
   selector: 'app-viewer',
   templateUrl: './viewer.component.html',
-  styleUrls: ['./viewer.component.scss']
+  styleUrls: ['./viewer.component.scss'],
 })
 export class ViewerComponent implements OnInit {
-
   @Input() ctxName?: string;
 
-  constructor(
-    private webvisLibService: WebvisLibService,
-  ) {
+  constructor(private webvisLibService: WebvisLibService) {
     // attach the webvis to the browser
     this.webvisLibService.initFromURL(environment.webvisURL);
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   async ngAfterViewInit(): Promise<void> {
-   
     // The model urn
-    const urn = "urn:x-i3d:shape:box";
+    const urn = 'urn:x-i3d:shape:box';
 
     // Add the model to the scene and make it visible
     // by calling the addNodeFromUrl from the library webvis-angular-lib
     await this.webvisLibService
-      .addNodeFromUrl(urn, "default_context", true)
-      .catch(err => {
+      .addNodeFromUrl(urn, 'default_context', true)
+      .catch((err) => {
         console.warn(err);
         return undefined;
       });
   }
-
 }
