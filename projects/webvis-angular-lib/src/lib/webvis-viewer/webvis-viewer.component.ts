@@ -9,7 +9,7 @@ import { WebvisLibService } from '../webvis-lib.service';
 })
 export class WebvisViewerComponent implements OnInit {
 
-  @Input() ctxName?: string;
+  @Input() ctxName: string = "default_context";
   @ViewChild('webvisContainer') webvisContainer!: ElementRef<HTMLElement>;
 
   public webvisLoaded$: BehaviorSubject<boolean>;
@@ -24,9 +24,7 @@ export class WebvisViewerComponent implements OnInit {
     firstValueFrom(this.webvisLoaded$.pipe(filter(val => !!val),
     )).then(() => {
       this.webvisContainer.nativeElement.innerHTML =
-        this.ctxName ?
-          `<webvis-viewer context="${this.ctxName}"></webvis-viewer>` :
-          `<webvis-viewer></webvis-viewer>`;
+          `<webvis-viewer context="${this.ctxName}"></webvis-viewer>`;
     });
   }
 }

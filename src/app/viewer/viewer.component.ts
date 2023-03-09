@@ -8,7 +8,6 @@ import { WebvisLibService } from 'webvis-angular-lib';
   styleUrls: ['./viewer.component.scss'],
 })
 export class ViewerComponent implements OnInit {
-  @Input() ctxName?: string;
 
   constructor(private webvisLibService: WebvisLibService) {
     // attach the webvis to the browser
@@ -24,7 +23,7 @@ export class ViewerComponent implements OnInit {
     // Add the model to the scene and make it visible
     // by calling the addNodeFromUrl from the library webvis-angular-lib
     await this.webvisLibService
-      .addNodeFromUrl(urn, 'default_context', true)
+      .addNodeFromUrl(urn)
       .catch((err) => {
         console.warn(err);
         return undefined;

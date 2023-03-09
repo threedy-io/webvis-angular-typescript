@@ -5,7 +5,10 @@ import { BehaviorSubject, filter, firstValueFrom, map, Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class WebvisLibService {
+  // Observable that holds true, once webvis.js is loaded.
   public webvisLoaded$ = new BehaviorSubject(false);
+  // Observable that hold true, once the first webvis ctx is created and available.
+  public webvisCtxAvailable$ = new BehaviorSubject(false);
 
   private selectionChangedSubjects = new Map<
     string | undefined,
@@ -25,7 +28,8 @@ export class WebvisLibService {
     script.type = 'text/javascript';
     script.src = url;
     script.onload = () => {
-      this.webvisLoaded$.next(true);
+      this.webvisLoaded$.next(true);      
+      webvis.addContextCreatedListener( (_ ) => this.webvisCtxAvailable$.next(true));
     };
 
     document.getElementsByTagName('head')[0].appendChild(script);
@@ -91,17 +95,22 @@ export class WebvisLibService {
     return ctx.remove(id);
   }
 
-  async getWebvisContext(ctxName?: string): Promise<webvis.ContextAPI> {
+  async getWebvisContext(ctxName? : string): Promise<webvis.ContextAPI> {
     return firstValueFrom(
-      this.webvisLoaded$.pipe(
+      this.webvisCtxAvailable$.pipe(
         filter((val) => !!val),
-        map((_) => (<any>window).webvis.getContext(ctxName))
-      )
+        map(async (_) => {
+          let ctx = window.webvis.getContext(ctxName);
+          if (!ctx) {
+            ctx = await window.webvis.requestContext(ctxName || "default_context");
+          }
+          if (!ctx) {
+            return Promise.reject("Could not create Context: " + ctxName);
+          }
+          return ctx;
+        }
+      ))
     );
-  }
-
-  async createContext(ctxName?: string): Promise<webvis.ContextAPI> {
-    return (<any>window).webvis.getContext(ctxName);
   }
 
   handleWebvisEvent(event: webvis.WebVisEvent, ctxName?: string) {
