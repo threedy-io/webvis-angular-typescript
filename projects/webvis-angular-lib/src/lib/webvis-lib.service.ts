@@ -78,7 +78,7 @@ export class WebvisLibService {
           throw new Error('Wrong NodeInfoState');
       })
       .then(() => ctx.setProperty(node, webvis.Property.ENABLED, enabled))
-      .then(() => ctx.getProperty(node, 'children'))
+      .then(() => ctx.getProperty(node, webvis.Property.CHILDREN))
       .then(() => node)
       .catch(() => {
         ctx.remove(node);
