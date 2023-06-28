@@ -11,7 +11,7 @@ export class ViewerComponent implements OnInit {
 
   constructor(private webvisLibService: WebvisLibService) {
     // attach the webvis to the browser
-    this.webvisLibService.initFromURL(environment.webvisURL);
+    this.webvisLibService.initFromURL(environment.webvisURL as string);
   }
 
   ngOnInit() {}

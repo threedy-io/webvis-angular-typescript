@@ -5,7 +5,4 @@ require('dotenv').config()
 module.exports = {
   plugins: [
     new EnvironmentPlugin({
-      THREEDY_WEBVIS_URL: undefined,
-    })
-  ]
-}
+      THREEDY_WEBVIS_URL: "",
