@@ -2,14 +2,10 @@
 
 webvis-angular is a simple application that shows how to integrate webvis into the modern framework Angular.
 
----
-
 ## Table of content
 
----
-
-- [Description:](#description)
-- [Table of content:](#table-of-content)
+- [Description](#description)
+- [Table of content](#table-of-content)
 - [How to use the example](#how-to-use-the-example)
 - [Technical details](#technical-details)
 - [License](#license)
@@ -21,22 +17,19 @@ webvis-angular is a simple application that shows how to integrate webvis into t
 
 This sample example is based on [webvis API](https://docs.threedy.io/3.6.1/index.html) and the [Angular documentation](https://angular.io/start).
 
-- Setup
+### Prerequisites
 
-  In the project directory, run:
+Make sure Angular is installed globally with `npm install -g @angular/cli`. This is necessary to then run `ng build webvis-angular-lib`, which builds the webvis library.
 
-  - `npm install`
+### Setup
 
-    - To install all the dependencies.
+In the project directory, run:
 
-  - `npm start`
+- `npm install` to install all the dependencies.
 
-        - to build a development build of the demonstator app and start a development webserver. It watches for changes on    the demonstrator project and hot reloads the app.
-        - Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- `npm start` to build a development version of the demonstator app and start a local development server. It watches for changes on the demonstrator project and hot reloads the app.
 
-  - `ng build webvis-angular-lib`
-
-        - To build the webvis library : Please note that it should be build beforehand.
+- Then open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Technical details
 
