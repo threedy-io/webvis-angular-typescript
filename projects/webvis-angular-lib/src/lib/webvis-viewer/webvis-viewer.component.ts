@@ -8,23 +8,18 @@ import { WebvisLibService } from '../webvis-lib.service';
   styleUrls: ['./webvis-viewer.component.css'],
 })
 export class WebvisViewerComponent implements OnInit {
-
-  @Input() ctxName: string = "default_context";
+  @Input() ctxName: string = 'default_context';
   @ViewChild('webvisContainer') webvisContainer!: ElementRef<HTMLElement>;
 
   public webvisLoaded$: BehaviorSubject<boolean>;
 
-  constructor(
-    protected webvisLibService: WebvisLibService,
-  ) {
+  constructor(protected webvisLibService: WebvisLibService) {
     this.webvisLoaded$ = webvisLibService.webvisLoaded$;
   }
 
   ngOnInit(): void {
-    firstValueFrom(this.webvisLoaded$.pipe(filter(val => !!val),
-    )).then(() => {
-      this.webvisContainer.nativeElement.innerHTML =
-          `<webvis-viewer context="${this.ctxName}"></webvis-viewer>`;
+    firstValueFrom(this.webvisLoaded$.pipe(filter((val) => !!val))).then(() => {
+      this.webvisContainer.nativeElement.innerHTML = `<webvis-viewer context="${this.ctxName}"></webvis-viewer>`;
     });
   }
 }
