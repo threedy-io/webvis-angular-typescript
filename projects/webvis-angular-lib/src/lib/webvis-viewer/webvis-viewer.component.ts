@@ -1,5 +1,5 @@
-import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { BehaviorSubject, filter, firstValueFrom, map, Subscription, tap } from 'rxjs';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { BehaviorSubject, filter, firstValueFrom } from 'rxjs';
 import { WebvisLibService } from '../webvis-lib.service';
 
 @Component({
