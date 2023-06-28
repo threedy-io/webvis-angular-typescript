@@ -1,8 +1,11 @@
-const { EnvironmentPlugin } = require('webpack');
+const { EnvironmentPlugin } = require("webpack");
 
-require('dotenv').config()
+require("dotenv").config();
 
 module.exports = {
   plugins: [
     new EnvironmentPlugin({
       THREEDY_WEBVIS_URL: "",
+    }),
+  ],
+};
