@@ -40,9 +40,9 @@ This sample example is based on [webvis API](https://docs.threedy.io/3.6.1/index
 
 ## Technical details
 
-- `Env variables` :
+### Env variables
 
-  - `THREEDY_WEBVIS_URL` : Link to the webvis instance Where the webvis.js is located and can be changed in the environment.ts "webvisURL", it should be 3.6.x version [https://hubdemo.threedy.io/repo/webvis/webvis.js](https://hubdemo.threedy.io/repo/webvis/webvis.js)
+- `THREEDY_WEBVIS_URL` : Link to the webvis instance where webvis.js is located. Change this to your own instance location in `environment.ts`. The latest version is 3.7. [https://demo.threedy.io/repo/webvis/webvis.js?next](https://demo.threedy.io/repo/webvis/webvis.js?next)
 
 ## License
 
