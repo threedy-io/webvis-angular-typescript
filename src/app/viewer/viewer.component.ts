@@ -8,10 +8,9 @@ import { WebvisLibService } from 'webvis-angular-lib';
   styleUrls: ['./viewer.component.scss'],
 })
 export class ViewerComponent implements OnInit {
-
   constructor(private webvisLibService: WebvisLibService) {
     // attach the webvis to the browser
-    this.webvisLibService.initFromURL(environment.webvisURL);
+    this.webvisLibService.initFromURL(environment.webvisURL as string);
   }
 
   ngOnInit() {}
@@ -22,11 +21,9 @@ export class ViewerComponent implements OnInit {
 
     // Add the model to the scene and make it visible
     // by calling the addNodeFromUrl from the library webvis-angular-lib
-    await this.webvisLibService
-      .addNodeFromUrl(urn)
-      .catch((err) => {
-        console.warn(err);
-        return undefined;
-      });
+    await this.webvisLibService.addNodeFromUrl(urn).catch((err) => {
+      console.warn(err);
+      return undefined;
+    });
   }
 }

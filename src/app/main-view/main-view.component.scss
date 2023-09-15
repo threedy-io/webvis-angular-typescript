@@ -2,6 +2,12 @@
   position: relative;
   height: 90vmin;
 
+  .side-content {
+    padding: 10px;
+    left: 25%;
+    position: relative;
+    width: 60%;
+  }
   .side-content .h1 {
     top: 0;
     height: 10%;
