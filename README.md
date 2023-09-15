@@ -29,7 +29,7 @@ In the project directory, run:
 
 - `npm start` to build a development version of the demonstator app and start a local development server. It watches for changes on the demonstrator project and hot reloads the app.
 
-- Then open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Then open [http://localhost:4200](http://localhost:4200) to view it in the browser.
 
 ## Technical details
 
