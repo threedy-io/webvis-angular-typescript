@@ -16,9 +16,9 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'webvis-angular-typescript'`, () => {
+  it(`should have as title 'webvis-angular'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('webvis-angular-typescript');
+    expect(app.title).toEqual('webvis-angular');
   });
 });
